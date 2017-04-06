@@ -20,10 +20,16 @@ class App extends React.Component {
 
 
   componentWillMount(){
-    var localStorageRef = localStorage.getItem('isLoggedIn');
-    if (localStorageRef) {
+    var localStorageLogin = localStorage.getItem('isLoggedIn');
+    if (localStorageLogin) {
       this.setState({
         isLoggedIn: true
+      })
+    }
+    var localStorageUser = localStorage.getItem('user');
+    if (localStorageUser) {
+      this.setState({
+        user: JSON.parse(localStorageUser)
       })
     }
     this.ref = base.syncState(`/messages`, {
@@ -42,6 +48,7 @@ class App extends React.Component {
 
   componentWillUpdate(nextProps, nextState){
     localStorage.setItem('isLoggedIn', JSON.stringify(nextState.isLoggedIn));
+    localStorage.setItem('user', JSON.stringify(nextState.user));
   }
 
   addMessage(message) {
