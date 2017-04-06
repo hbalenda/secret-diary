@@ -1,0 +1,102 @@
+html, body {
+  background-color: #FEFFEA;
+}
+
+.sign-in {
+  max-width: 500px;
+  margin: 50px auto;
+}
+.sign-in input,
+.sign-in button {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.sign-in button {
+  background-color: #DBD5B5;
+  border: none;
+  color: white;
+  font-size: 60px;
+  line-height:2.5em;
+}
+
+.sign-in input, .sign-in button {
+  outine: none;
+}
+
+.secret-diary {
+  max-height: 800px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  left: 0;
+}
+
+.list-of-messages {
+  border: 5px solid #FF99C9;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  padding: 5px 15px;
+  display:flex;
+  flex-direction: column;
+  margin: 50px;
+  overflow: scroll;
+  height: 50vh;
+}
+
+.message-form {
+  display:flex;
+  justify-content: space-between;
+  margin: 50px;
+}
+
+.message-form button {
+  background-color: #FEFFEA;
+  border: 5px solid #FF99C9;
+  border-left: none;
+  outline: none;
+  color: #FF99C9;
+  font-size: 60px;
+  line-height:2.5em;
+}
+
+.message-form button:hover {
+  color: #FEFFEA;
+  background-color: #FF99C9;
+  border: 5px solid #FF99C9;
+  border-left: none;
+}
+
+.message-form textarea {
+  border: 5px solid #FF99C9;
+  background-color: #FEFFEA;
+  padding: 12px 15px;
+  width:100%;
+  font-family: 'Open Sans';
+  font-size:12px;
+  outline: none;
+  resize: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.message {
+  color: #FE5F55;
+  font-size: 12px;
+}
+
+.hannah {
+  color: #FE5F55;
+}
+
+.ben {
+  color: #B4ADEA;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
