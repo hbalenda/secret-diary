@@ -1,29 +1,19 @@
 import React from 'react';
-import base from '../base';
 
 class SignIn extends React.Component {
-  constructor() {
-    super();
-  };
-  componentWillMount() {
-    this.ref = base.syncState(`/users`, {
-      context: this,
-      state: 'users'
-    })
-  }
 
   authenticateUser(name, password) {
-    Object.keys(this.props.users).map(key => {
-      if(this.props.users[key].name === name) {
-        if(this.props.users[key].password === password) {
-          this.props.logIn(this.props.users[key]);
+    var users = this.props.users;
+    var logIn = this.props.logIn;
+    for(var key of Object.keys(users)) {
+      if(users[key].name === name) {
+        if(users[key].password === password) {
+          logIn(users[key]);
         } else {
-          console.log("Wrong password")
+          window.alert("Wrong password!");
         }
-      } else {
-        console.log("Couldn't Find User");
       }
-    })
+    }
   }
   submitUserValues(event) {
     event.preventDefault();

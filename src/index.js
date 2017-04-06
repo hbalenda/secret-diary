@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { BrowserRouter, Match, Miss } from 'react-router';
 
 import NotFound from './components/NotFound';
-import SignIn from './components/SignIn';
 import App from './components/App';
 import './css/style.css';
 
