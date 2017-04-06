@@ -1,4 +1,5 @@
 import React from 'react';
+import SignIn from './SignIn';
 import Message from './Message';
 import AddMessageForm from './AddMessageForm';
 import base from '../base';
@@ -7,20 +8,16 @@ class App extends React.Component {
   constructor() {
     super();
     this.addMessage = this.addMessage.bind(this);
+    this.logIn = this.logIn.bind(this);
+    this.addUser = this.addUser.bind(this);
     this.state = {
       messages:{},
-      users:{
-        "user-1":{
-          name:"hannah",
-          color:"white"
-        },
-        "user-2":{
-          name:"ben",
-          color:"blue"
-        }
-      },
+      isLoggedIn: "",
+      users: {},
+      user: {},
     };
   }
+
 
   componentWillMount(){
     this.ref = base.syncState(`/messages`, {
@@ -31,12 +28,6 @@ class App extends React.Component {
       context: this,
       state: 'users'
     })
-    // var localStorageRef = localStorage.getItem(`order-${this.props.params.storeId}`);
-    // if (localStorageRef) {
-    //   this.setState({
-    //     order: JSON.parse(localStorageRef)
-    //   })
-    // }
   }
 
   componentWillUnMount(){
@@ -54,18 +45,37 @@ class App extends React.Component {
     // equivalent to this.setState({ messages: messages });
   }
 
+  addUser(user) {
+    const users = { ...this.state.users };
+    const timestamp = Date.now();
+    users[`user-${timestamp}`] = user;
+    this.setState({ users });
+  }
+
+  logIn(user){
+    var isLoggedIn = { ...this.state.isLoggedIn };
+    isLoggedIn = true;
+    this.setState({ isLoggedIn });
+    const newUser = { ...this.state.user };
+    this.setState({ user })
+  }
+
   render() {
     return (
-      <div className="secret-diary">
-        <div className="list-of-messages">
-          {
-            Object
-            .keys(this.state.messages)
-            .map(key => <Message key={key} index={key} details={this.state.messages[key]} />)
-          }
+        <div className="app">
+          { this.state.isLoggedIn ?
+          <div className="secret-diary">
+            <div className="list-of-messages">
+              {
+                Object
+                .keys(this.state.messages)
+                .map(key => <Message key={key} index={key} details={this.state.messages[key]} />)
+              }
+            </div>
+            <AddMessageForm user={this.state.user} addMessage={this.addMessage}/>
+          </div>
+          : <SignIn addUser={this.addUser} logIn={this.logIn} users={this.state.users}/> }
         </div>
-        <AddMessageForm user={this.state.user} addMessage={this.addMessage}/>
-      </div>
     )
   }
 }

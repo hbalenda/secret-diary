@@ -12,9 +12,12 @@ class AddMessageForm extends React.Component {
   }
 
   render() {
+    const divstyle = {
+      color: this.props.user.color
+    }
     return (
       <form className="message-form" ref={(input) => this.messageForm = input} onSubmit={(e) => this.createMessage(e)}>
-        <textarea ref={(input) => this.text = input}></textarea>
+        <textarea style={divstyle} ref={(input) => this.text = input}></textarea>
         <button type="submit">+</button>
       </form>
     )
