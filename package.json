@@ -2,10 +2,13 @@
   "name": "secret-diary",
   "version": "0.0.1",
   "private": true,
+  "engines":{
+    "node":"7.4.0",
+    "npm":"4.4.4"
+  },
   "devDependencies": {
     "autoprefixer-stylus": "0.10.0",
     "concurrently": "3.0.0",
-    "react-scripts": "0.6.1",
     "stylus": "0.54.5"
   },
   "dependencies": {
@@ -14,7 +17,8 @@
     "react": "15.3.2",
     "react-addons-css-transition-group": "15.3.2",
     "react-dom": "15.3.2",
-    "react-router": "4.0.0-alpha.3"
+    "react-router": "4.0.0-alpha.3",
+    "react-scripts": "0.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
