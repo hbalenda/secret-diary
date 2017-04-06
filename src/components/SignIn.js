@@ -20,11 +20,12 @@ class SignIn extends React.Component {
     const name = this.name.value;
     const password = this.password.value;
     this.authenticateUser(name, password);
+    this.signInForm.reset();
   }
 
   render() {
     return (
-      <form className="sign-in" onSubmit={(e) => this.submitUserValues(e)}>
+      <form className="sign-in" ref={(input) => this.signInForm = input} onSubmit={(e) => this.submitUserValues(e)}>
         <input ref={(input) => this.name = input} type="text"/>
         <input ref={(input) => this.password = input} type="password"/>
         <button type="submit">Enter</button>
