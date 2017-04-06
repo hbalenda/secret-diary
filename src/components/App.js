@@ -79,7 +79,7 @@ class App extends React.Component {
                 .map(key => <Message key={key} index={key} details={this.state.messages[key]} />)
               }
             </div>
-            <AddMessageForm user={this.state.user} addMessage={this.addMessage}/>
+            <AddMessageForm color={this.state.user.color} addMessage={this.addMessage}/>
           </div>
           : <SignIn addUser={this.addUser} logIn={this.logIn} users={this.state.users}/> }
         </div>

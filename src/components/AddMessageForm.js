@@ -5,7 +5,7 @@ class AddMessageForm extends React.Component {
     event.preventDefault();
     const message = {
       text: this.text.value,
-      user: this.props.user,
+      color: this.props.color,
     }
     this.props.addMessage(message);
     this.messageForm.reset();
@@ -13,7 +13,7 @@ class AddMessageForm extends React.Component {
 
   render() {
     const divstyle = {
-      color: this.props.user.color
+      color: this.props.color
     }
     return (
       <form className="message-form" ref={(input) => this.messageForm = input} onSubmit={(e) => this.createMessage(e)}>

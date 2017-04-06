@@ -7,11 +7,11 @@ class Message extends React.Component {
   }
   render() {
     const divstyle = {
-      color: this.props.details.user.color
+      color: this.props.details.color
     }
     return (
       <div style={divstyle} className="message">
-        <p className={this.props.details.user.name}>{this.props.details.text}</p>
+        <p>{this.props.details.text}</p>
       </div>
     )
   }
