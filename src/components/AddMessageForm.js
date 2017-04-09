@@ -3,9 +3,10 @@ import React from 'react';
 class AddMessageForm extends React.Component {
   createMessage(event) {
     event.preventDefault();
+    var color = this.props.color || "red";
     const message = {
       text: this.text.value,
-      color: this.props.color,
+      color: color,
     }
     this.props.addMessage(message);
     this.messageForm.reset();

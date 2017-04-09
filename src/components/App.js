@@ -14,7 +14,7 @@ class App extends React.Component {
       messages:{},
       isLoggedIn: "",
       users: {},
-      user: {},
+      user: null,
     };
   }
 
@@ -29,7 +29,11 @@ class App extends React.Component {
     var localStorageUser = localStorage.getItem('user');
     if (localStorageUser) {
       this.setState({
-        user: JSON.parse(localStorageUser)
+        user: {
+          color: "red",
+           name: "Ben",
+           password: "butter"
+        }
       })
     }
     this.ref = base.syncState(`/messages`, {
